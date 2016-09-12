@@ -49,6 +49,10 @@ namespace Jeu2DesDLL
         #region "Methodes"
         #endregion
         #region "Methodes héritées et substituées"
+        public override string ToString()
+        {
+            return "Nom: "+Nom+" Score: "+Score;
+        }
         #endregion
         #region "Methodes à implementer pour les interfaces"
         public int CompareTo(object obj)
@@ -56,7 +60,7 @@ namespace Jeu2DesDLL
             if (obj is Entree)
             {
                 Entree other = (Entree)obj;
-                return this.Score.CompareTo(other.Score);
+                return other.Score.CompareTo(this.Score);
             }
             return -1;
         }

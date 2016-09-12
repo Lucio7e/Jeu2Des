@@ -55,14 +55,20 @@ namespace Jeu2DesDLL
         {
             d1.Lancer();
             d2.Lancer();
-            if(d1.Valeur + d2.Valeur == 7)
+            int total = d1.Valeur + d2.Valeur;
+            if (total == 7)
             {
                 Score += 10;
             }
+            Console.WriteLine("Les dés sont jetés D1 : "+d1.Valeur+", D2 : "+d2.Valeur+" Total :"+total );
         }
 
         #endregion
         #region "Methodes héritées et substituées"
+        public override string ToString()
+        {
+            return "Nom : " + Nom + " Score : " + Score;
+        }
         #endregion
         #region "Methodes à implementer pour les interfaces"
         #endregion

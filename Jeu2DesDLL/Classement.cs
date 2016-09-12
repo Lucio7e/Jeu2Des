@@ -38,7 +38,7 @@ namespace Jeu2DesDLL
         public string TopN()
         {
             Entrees.Sort();
-            return Entrees.ToString();
+            return "-----CLASSEMENT-----\n"+this.ToString();
         }
         #endregion
         #region "Methodes héritées et substituées"
@@ -47,7 +47,7 @@ namespace Jeu2DesDLL
             string retour = "";
             foreach (Entree item in Entrees)
             {
-                retour += "Nom : " + item.Nom + " Score : " + item.Score;
+                retour += item.ToString()+"\n";
             }
             return retour;
         }

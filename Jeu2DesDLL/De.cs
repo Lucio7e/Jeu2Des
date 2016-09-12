@@ -11,7 +11,7 @@ namespace Jeu2DesDLL
 
         #region "Propriétés et accesseurs"
 
-        
+        private Random rand = new Random(DateTime.Now.Millisecond);
         private int _Valeur;
 
         public int Valeur
@@ -39,7 +39,7 @@ namespace Jeu2DesDLL
         /// </summary>
         public void Lancer()
         {
-            Random rand = new Random();
+           
             _Valeur = rand.Next(1, 7);
         }
         #endregion
