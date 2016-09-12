@@ -12,17 +12,17 @@ namespace Jeu2DesDLL
         private Classement _Classement;
         private De _D1;
         private De _D2;
-        public Jeu2Des(Joueur joueur, Classement classement, De D1, De D2)
-        {
-            _Joueur = joueur;
-            _Classement = classement;
-            _D1 = D1;
-            _D2 = D2;
-        }
-
-        public void JouerPartie()
+        public Jeu2Des()
         {
            
+            _Classement = new Classement();
+            _D1 = new De();
+            _D2 = new De();
+        }
+
+        public void JouerPartie(Joueur joueur)
+        {
+            _Joueur = joueur;
             for (int i = 0; i < 10; i++)
             {
                 _Joueur.Jouer(_D1, _D2);

@@ -12,16 +12,15 @@ namespace Jeu2Des
         static void Main(string[] args)
         {
             bool continu = true;
-            Classement c = new Classement();
-            De D1 = new De();
-            De D2 = new De();
+            Jeu2DesDLL.Jeu2Des jeu = new Jeu2DesDLL.Jeu2Des();
+
             while (continu) {
                 Console.Clear();
                 Console.WriteLine("Entrez votre nom pour pouvoir lancer les dés");
                 string nom = Console.ReadLine();
                 Joueur joueur = new Joueur(nom);
-                Jeu2DesDLL.Jeu2Des jeu = new Jeu2DesDLL.Jeu2Des(joueur, c, D1, D2);
-                jeu.JouerPartie();
+                
+                jeu.JouerPartie(joueur);
                 Console.WriteLine("Voulez vous continuez? Y / N");
                 if (Console.ReadLine() != "Y")
                 {
