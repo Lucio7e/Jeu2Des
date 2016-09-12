@@ -11,6 +11,8 @@ namespace Jeu2Des
     {
         static void Main(string[] args)
         {
+            
+            //GG : Bien        
             bool continu = true;
             Jeu2DesDLL.Jeu2Des jeu = new Jeu2DesDLL.Jeu2Des();
 

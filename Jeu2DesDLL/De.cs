@@ -11,6 +11,8 @@ namespace Jeu2DesDLL
 
         #region "Propriétés et accesseurs"
 
+        //GG : une alternative consiste nà décalrer une instance de Random static
+        //GG : private static Random rand = new Random();
         private Random rand = new Random(DateTime.Now.Millisecond);
         private int _Valeur;
 
@@ -39,7 +41,9 @@ namespace Jeu2DesDLL
         /// </summary>
         public void Lancer()
         {
-           
+           //GG : la méthode Lancer pourait renvoyer la valeur comme résultat
+           //GG : car en général le programme qui appelle la méthode Next() veut aussi récupérer la valeur
+           //GG : Ici, il devra faire 2 actions : appeler Next() puis appeler Valeur pour récupérer le résultat du lancer
             _Valeur = rand.Next(1, 7);
         }
         #endregion

@@ -35,7 +35,7 @@ namespace Jeu2DesDLL
                 return _Score;
             }
 
-            set
+            set //GG : attention, set ici permet de modifier le score du joueur en dehors de la classe --> private
             {
                 _Score = value;
             }

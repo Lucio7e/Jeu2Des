@@ -29,12 +29,14 @@ namespace Jeu2DesDLL
         }
         #endregion
         #region "Methodes"
+        //GG : on peut aussi prévoir 2 paramètres pour AjouterEntree (nom, score)
         public void AjouterEntree(Joueur joueur)
         {
             Entree entree = new Entree(joueur);
             Entrees.Add(entree);
         }
 
+        //GG : J'ai ajouté une surcharge de TopN(int nb) pour afficher les "nb" plus haut scores seulement
         public string TopN()
         {
             Entrees.Sort();

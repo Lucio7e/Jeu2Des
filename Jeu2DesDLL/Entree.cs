@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Jeu2DesDLL
 {
-    public class Entree:IComparable
+    public class Entree:IComparable //GG : Bien, indispensable pour trier 
     {
 
         #region "Propriétés et accesseurs"
@@ -40,6 +40,8 @@ namespace Jeu2DesDLL
         }
         #endregion
         #region "Constructeurs"
+        //GG : Si tu passes Joueur au constructeur d'Entree, tu rends la classe Joueur dépendante de la classe Joueur
+        //GG : je préfère 2 paramètres : nom et score
         public Entree(Joueur joueur)
         {
             this.Nom = joueur.Nom;

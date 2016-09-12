@@ -22,18 +22,19 @@ namespace Jeu2DesDLL
 
         public void JouerPartie(Joueur joueur)
         {
-            _Joueur = joueur;
+            //GG : bien
+             _Joueur = joueur;
             for (int i = 0; i < 10; i++)
             {
                 _Joueur.Jouer(_D1, _D2);
             }
             _Classement.AjouterEntree(_Joueur);
-            Console.WriteLine(VoirClassement()); 
+            Console.WriteLine(VoirClassement()); //GG : on pourrait laisser le program afficher le classement quand il le voudra 
         }
 
         public string VoirClassement()
         {
-            return _Classement.TopN();
+            return _Classement.TopN(); //GG : bien
         }
     }
 }
