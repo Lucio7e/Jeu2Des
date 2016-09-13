@@ -32,7 +32,7 @@ namespace Jeu2DesDLL
         //GG : on peut aussi prévoir 2 paramètres pour AjouterEntree (nom, score)
         public void AjouterEntree(Joueur joueur)
         {
-            Entree entree = new Entree(joueur);
+            Entree entree = new Entree(joueur.Nom, joueur.Score);
             Entrees.Add(entree);
         }
 

@@ -42,10 +42,10 @@ namespace Jeu2DesDLL
         #region "Constructeurs"
         //GG : Si tu passes Joueur au constructeur d'Entree, tu rends la classe Joueur dépendante de la classe Joueur
         //GG : je préfère 2 paramètres : nom et score
-        public Entree(Joueur joueur)
+        public Entree(string nom, int score)
         {
-            this.Nom = joueur.Nom;
-            this.Score = joueur.Score;
+            this.Nom = nom;
+            this.Score = score;
         }
         #endregion
         #region "Methodes"
