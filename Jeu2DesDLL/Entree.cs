@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Jeu2DesDLL
 {
+    [Serializable]
     public class Entree:IComparable //GG : Bien, indispensable pour trier 
     {
 

@@ -12,10 +12,26 @@ namespace Jeu2DesDLL
         private Classement _Classement;
         private De _D1;
         private De _D2;
-        public Jeu2Des()
+
+        public Classement Classement
         {
+            get
+            {
+                return _Classement;
+            }
+
            
-            _Classement = new Classement();
+        }
+
+        public Jeu2Des(string typeSerialization)
+        {
+            if (typeSerialization.ToUpper() == "BINAIRE") {
+                _Classement = new ClassementBinaire();
+            }else
+            {
+                _Classement = new ClassementJson();
+            }
+            
             _D1 = new De();
             _D2 = new De();
         }
@@ -28,13 +44,13 @@ namespace Jeu2DesDLL
             {
                 _Joueur.Jouer(_D1, _D2);
             }
-            _Classement.AjouterEntree(_Joueur);
+            Classement.AjouterEntree(_Joueur);
             
         }
 
         public string VoirClassement()
         {
-            return _Classement.TopN(); //GG : bien
+            return Classement.TopN(); //GG : bien
         }
     }
 }

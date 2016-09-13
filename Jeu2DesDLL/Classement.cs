@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace Jeu2DesDLL
 {
-    public class Classement
+    [Serializable]
+    public abstract class Classement
     {
-
-
+        
         #region "Propriétés et accesseurs"
-        private List<Entree> _Entrees;
-
+        protected List<Entree> _Entrees = new List<Entree>();
         public List<Entree> Entrees
         {
             get
@@ -25,7 +24,7 @@ namespace Jeu2DesDLL
         #region "Constructeurs"
         public Classement()
         {
-            _Entrees = new List<Entree>();
+            
         }
         #endregion
         #region "Methodes"
@@ -55,6 +54,9 @@ namespace Jeu2DesDLL
         }
         #endregion
         #region "Methodes à implementer pour les interfaces"
+
+        public abstract void Load();
+        public abstract void Save();
         #endregion
 
 

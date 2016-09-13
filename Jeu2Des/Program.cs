@@ -14,8 +14,11 @@ namespace Jeu2Des
             
             //GG : Bien        
             bool continu = true;
-            Jeu2DesDLL.Jeu2Des jeu = new Jeu2DesDLL.Jeu2Des();
-
+            Console.WriteLine("Choisissez votre mode de sauvegarde : binaire ou json");
+            
+            Jeu2DesDLL.Jeu2Des jeu = new Jeu2DesDLL.Jeu2Des(Console.ReadLine());
+            jeu.Classement.Load();
+           
             while (continu) {
                 Console.Clear();
                 Console.WriteLine("Entrez votre nom pour pouvoir lancer les dés");
@@ -35,7 +38,7 @@ namespace Jeu2Des
                     continu = false;
                 }
             }
-             
+            jeu.Classement.Save();
             Console.ReadKey();
         }
     }

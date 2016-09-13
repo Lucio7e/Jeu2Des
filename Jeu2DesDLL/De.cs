@@ -13,7 +13,7 @@ namespace Jeu2DesDLL
 
         //GG : une alternative consiste nà décalrer une instance de Random static
         //GG : private static Random rand = new Random();
-        private Random rand = new Random(DateTime.Now.Millisecond);
+        private static Random rand = new Random();
         private int _Valeur;
 
         public int Valeur
