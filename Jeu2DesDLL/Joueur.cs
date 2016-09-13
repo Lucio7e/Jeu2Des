@@ -53,9 +53,8 @@ namespace Jeu2DesDLL
 
         public void Jouer(De d1, De d2)
         {
-            d1.Lancer();
-            d2.Lancer();
-            int total = d1.Valeur + d2.Valeur;
+            
+            int total = d1.Lancer() + d2.Lancer();
             if (total == 7)
             {
                 Score += 10;

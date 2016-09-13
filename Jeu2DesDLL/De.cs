@@ -39,12 +39,13 @@ namespace Jeu2DesDLL
         /// <summary>
         /// Methode permettant de lancer un dé, et stock la valeur du lancé dans l'attribut Valeur du dé
         /// </summary>
-        public void Lancer()
+        public int Lancer()
         {
            //GG : la méthode Lancer pourait renvoyer la valeur comme résultat
            //GG : car en général le programme qui appelle la méthode Next() veut aussi récupérer la valeur
            //GG : Ici, il devra faire 2 actions : appeler Next() puis appeler Valeur pour récupérer le résultat du lancer
             _Valeur = rand.Next(1, 7);
+            return _Valeur;
         }
         #endregion
         #region "Methodes héritées et substituées"
