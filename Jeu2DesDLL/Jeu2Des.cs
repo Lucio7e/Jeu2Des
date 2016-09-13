@@ -29,7 +29,7 @@ namespace Jeu2DesDLL
                 _Joueur.Jouer(_D1, _D2);
             }
             _Classement.AjouterEntree(_Joueur);
-            Console.WriteLine(VoirClassement()); //GG : on pourrait laisser le program afficher le classement quand il le voudra 
+            
         }
 
         public string VoirClassement()

@@ -23,6 +23,12 @@ namespace Jeu2Des
                 Joueur joueur = new Joueur(nom);
                 
                 jeu.JouerPartie(joueur);
+                Console.WriteLine("Voulez-vous voir le classement ? Y / N");
+                if (Console.ReadLine() == "Y")
+                {
+                    Console.Clear();
+                    Console.WriteLine(jeu.VoirClassement());
+                }
                 Console.WriteLine("Voulez vous continuez? Y / N");
                 if (Console.ReadLine() != "Y")
                 {
