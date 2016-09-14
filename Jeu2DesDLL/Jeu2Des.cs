@@ -25,12 +25,19 @@ namespace Jeu2DesDLL
 
         public Jeu2Des(string typeSerialization)
         {
-            if (typeSerialization.ToUpper() == "BINAIRE") {
+            string s = typeSerialization.ToUpper();
+            if (s == "BINAIRE") {
                 _Classement = new ClassementBinaire();
-            }else
+            }
+            if (s == "JSON")
             {
                 _Classement = new ClassementJson();
             }
+            if (s == "XML")
+            {
+                _Classement = new ClassementXML();
+            }   
+            
             
             _D1 = new De();
             _D2 = new De();
