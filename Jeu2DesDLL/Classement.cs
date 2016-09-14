@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Jeu2DesDLL
 {
     [Serializable]
+    [DataContract]
     public class Classement
     {
         
         #region "Propriétés et accesseurs"
         private List<Entree> _Entrees = new List<Entree>();
         IPersistable _persistable;
+        [DataMember]
         public List<Entree> Entrees
         {
             get

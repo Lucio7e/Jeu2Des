@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Jeu2DesDLL
 {
     [Serializable]
+    [DataContract]
     public class Entree:IComparable //GG : Bien, indispensable pour trier 
     {
 
         #region "Propriétés et accesseurs"
         private string _Nom;
         private int _Score;
-
+        [DataMember]
         public string Nom
         {
             get
@@ -26,7 +28,7 @@ namespace Jeu2DesDLL
                 _Nom = value;
             }
         }
-
+        [DataMember]
         public int Score
         {
             get
