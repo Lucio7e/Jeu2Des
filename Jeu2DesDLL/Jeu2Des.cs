@@ -9,7 +9,7 @@ namespace Jeu2DesDLL
     public class Jeu2Des
     {
         private Joueur _Joueur;
-        private Classement _Classement;
+        private Classement _Classement= new Classement();
         private De _D1;
         private De _D2;
 
@@ -19,26 +19,26 @@ namespace Jeu2DesDLL
             {
                 return _Classement;
             }
-
-           
+                       
         }
 
         public Jeu2Des(string typeSerialization)
         {
+           
             string s = typeSerialization.ToUpper();
             if (s == "BINAIRE") {
-                _Classement = new ClassementBinaire();
+                Classement.Persistable = new PersisterBinaire(); 
             }
             if (s == "JSON")
             {
-                _Classement = new ClassementJson();
+                Classement.Persistable = new PersisterJson();
             }
             if (s == "XML")
             {
-                _Classement = new ClassementXML();
-            }   
-            
-            
+                Classement.Persistable = new PersisterXML();
+            }
+
+            Classement.Charger();
             _D1 = new De();
             _D2 = new De();
         }

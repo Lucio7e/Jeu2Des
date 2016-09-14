@@ -7,18 +7,33 @@ using System.Threading.Tasks;
 namespace Jeu2DesDLL
 {
     [Serializable]
-    public abstract class Classement
+    public class Classement
     {
         
         #region "Propriétés et accesseurs"
-        protected List<Entree> _Entrees = new List<Entree>();
+        private List<Entree> _Entrees = new List<Entree>();
+        IPersistable _persistable;
         public List<Entree> Entrees
         {
             get
             {
                 return _Entrees;
             }
+            set
+            {
+                 _Entrees = value;
+            }
 
+        }
+        /// <summary>
+        /// Permettra de changer le type de serialization 
+        /// </summary>
+        public IPersistable Persistable
+        {         
+            set
+            {
+                _persistable = value;
+            }
         }
         #endregion
         #region "Constructeurs"
@@ -55,8 +70,21 @@ namespace Jeu2DesDLL
         #endregion
         #region "Methodes à implementer pour les interfaces"
 
-        public abstract void Load();
-        public abstract void Save();
+        /// <summary>
+        /// Methode qui apellera la sérialization au format correspondant à celui de l'interface 
+        /// </summary>
+        public void Persister()
+        {
+            _persistable.Save(this);
+        }
+        /// <summary>
+        /// Methode qui apellera la désérialization au format correspndat à celui de l'interface
+        /// </summary>
+        public void Charger()
+        {
+            _persistable.Load(this);
+        }
+       
         #endregion
 
 

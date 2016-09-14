@@ -9,27 +9,27 @@ using System.Threading.Tasks;
 namespace Jeu2DesDLL
 {
    [Serializable]
-    public class ClassementBinaire : Classement
+    public class PersisterBinaire : IPersistable
     {
         private const string FICHIER_BIN_SAV = "binsave.txt";
-        public override void Load()
+        public void Load(Classement classement)
         {
             if (File.Exists(FICHIER_BIN_SAV))
             {
                 Stream fichier = File.OpenRead(FICHIER_BIN_SAV);
                 BinaryFormatter BinSerializer = new BinaryFormatter();
                 Classement c = (Classement)BinSerializer.Deserialize(fichier);
-                _Entrees = c.Entrees;
+                classement.Entrees = c.Entrees;
                 fichier.Close();
             }
             
         }
 
-        public override void Save()
+        public void Save(Classement classement)
         {
             Stream fichier = File.Create(FICHIER_BIN_SAV);
             BinaryFormatter BinSerializer = new BinaryFormatter();
-            BinSerializer.Serialize(fichier, this);
+            BinSerializer.Serialize(fichier, classement);
             fichier.Close();
         }
     }

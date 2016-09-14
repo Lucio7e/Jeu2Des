@@ -42,11 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classement.cs" />
-    <Compile Include="ClassementBinaire.cs" />
-    <Compile Include="ClassementJson.cs" />
-    <Compile Include="ClassementXML.cs" />
+    <Compile Include="PersisterBinaire.cs" />
+    <Compile Include="PersisterJson.cs" />
+    <Compile Include="PersisterXML.cs" />
     <Compile Include="De.cs" />
     <Compile Include="Entree.cs" />
+    <Compile Include="IPersistable.cs" />
     <Compile Include="Jeu2Des.cs" />
     <Compile Include="Joueur.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -17,7 +17,7 @@ namespace Jeu2Des
             Console.WriteLine("Choisissez votre mode de sauvegarde : binaire ou json");
             
             Jeu2DesDLL.Jeu2Des jeu = new Jeu2DesDLL.Jeu2Des(Console.ReadLine());
-            jeu.Classement.Load();
+            
            
             while (continu) {
                 Console.Clear();
@@ -38,7 +38,7 @@ namespace Jeu2Des
                     continu = false;
                 }
             }
-            jeu.Classement.Save();
+            jeu.Classement.Persister();
             Console.ReadKey();
         }
     }

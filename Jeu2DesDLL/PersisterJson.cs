@@ -11,30 +11,30 @@ using System.Xml.Serialization;
 
 namespace Jeu2DesDLL
 {
-    [Serializable]
-    public class ClassementJson : Classement
+    
+    public class PersisterJson : IPersistable
     {
        private const string FICHIER_JSON_SAV = "jsonsave.json";
         
-        public ClassementJson(){}
-        public override void Load()
+       
+        public  void Load(Classement classement)
         {
             if (File.Exists(FICHIER_JSON_SAV))
             {
                 Stream fichier = File.OpenRead(FICHIER_JSON_SAV);
-                DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(ClassementJson));
+                DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(Classement));
                 Classement c = (Classement)serializer.ReadObject(fichier);
-                _Entrees = c.Entrees;
+                classement.Entrees = c.Entrees;
                 fichier.Close();
             }
           
         }
 
-        public override void Save()
+        public void Save(Classement classement)
         {
             Stream fichier = File.Create(FICHIER_JSON_SAV);
-            DataContractJsonSerializer serializer = new DataContractJsonSerializer(GetType());
-            serializer.WriteObject(fichier, this);
+            DataContractJsonSerializer serializer = new DataContractJsonSerializer(classement.GetType());
+            serializer.WriteObject(fichier,classement);
             fichier.Close();
 
             
