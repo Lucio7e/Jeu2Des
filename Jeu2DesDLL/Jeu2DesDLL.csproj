@@ -47,6 +47,7 @@
     <Compile Include="ClassementXML.cs" />
     <Compile Include="De.cs" />
     <Compile Include="Entree.cs" />
+    <Compile Include="FactoryClassement.cs" />
     <Compile Include="Jeu2Des.cs" />
     <Compile Include="Joueur.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

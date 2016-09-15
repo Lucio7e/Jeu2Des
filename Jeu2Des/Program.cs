@@ -14,7 +14,7 @@ namespace Jeu2Des
             
             //GG : Bien        
             bool continu = true;
-            Console.WriteLine("Choisissez votre mode de sauvegarde : binaire ou json");
+            Console.WriteLine("Choisissez votre mode de sauvegarde : binaire, xml, json");
             
             Jeu2DesDLL.Jeu2Des jeu = new Jeu2DesDLL.Jeu2Des(Console.ReadLine());
             jeu.Classement.Load();

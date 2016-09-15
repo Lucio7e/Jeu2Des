@@ -14,11 +14,15 @@ namespace Jeu2DesDLL
         public ClassementXML() { }
         public override void Load()
         {
-            Stream fichier = File.OpenRead(FICHIER_XML_SAV);
-            XmlSerializer serializer = new XmlSerializer(typeof(ClassementXML));
-            Classement c = (Classement)serializer.Deserialize(fichier);
-            _Entrees = c.Entrees;
-            fichier.Close();
+            if(File.Exists(FICHIER_XML_SAV))
+            {
+                Stream fichier = File.OpenRead(FICHIER_XML_SAV);
+                XmlSerializer serializer = new XmlSerializer(typeof(ClassementXML));
+                Classement c = (Classement)serializer.Deserialize(fichier);
+                _Entrees = c.Entrees;
+                fichier.Close();
+            }
+            
         }
 
         public override void Save()
