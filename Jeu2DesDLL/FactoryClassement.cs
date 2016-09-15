@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Jeu2DesDLL
 {
+    /// <summary>
+    /// Classe permettant l'instanciation d'un classement en fonction de la sérialization choisie
+    /// Mise en place du design pattern Factory
+    /// </summary>
     public class FactoryClassement
     {
         #region "Propriétés et accesseurs"
@@ -19,6 +23,11 @@ namespace Jeu2DesDLL
 
         #endregion
         #region "Methodes"
+        /// <summary>
+        /// Methode qui va instancier un classement et le renvoyer en fonction du type de serialization que l'on souhaite
+        /// </summary>
+        /// <param name="typeSerialization"></param>
+        /// <returns></returns>
         public Classement getClassement(String typeSerialization)
         {
             if (typeSerialization.ToUpper().Equals("BINAIRE"))
@@ -35,10 +44,6 @@ namespace Jeu2DesDLL
             }
         }
         #endregion
-        #region "Methodes héritées et substituées"
-        #endregion
-        #region "Methodes à implementer pour les interfaces"
-        #endregion
-
+    
     }
 }
