@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,11 +12,11 @@ namespace Jeu2DesDLL
         /// <summary>
         /// Methode de l'interface permettant de persister un objet dans differents formats
         /// </summary>
-        void Load(Classement classement);
+       T Load<T>(T obj);
 
         /// <summary>
         /// Methode de l'interface permettant de récupérer un objet persité
         /// </summary>
-        void Save(Classement classement);
+        void Save<T>(T obj);
     }
 }

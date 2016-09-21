@@ -12,24 +12,26 @@ namespace Jeu2DesDLL
     public class PersisterBinaire : IPersistable
     {
         private const string FICHIER_BIN_SAV = "binsave.txt";
-        public void Load(Classement classement)
+        public T Load<T>(T obj )
         {
             if (File.Exists(FICHIER_BIN_SAV))
             {
                 Stream fichier = File.OpenRead(FICHIER_BIN_SAV);
                 BinaryFormatter BinSerializer = new BinaryFormatter();
-                Classement c = (Classement)BinSerializer.Deserialize(fichier);
-                classement.Entrees = c.Entrees;
+                T t = (T)BinSerializer.Deserialize(fichier);
                 fichier.Close();
+                return t;
+                
             }
+            return default(T);
             
         }
 
-        public void Save(Classement classement)
+        public void Save<T>(T obj)
         {
             Stream fichier = File.Create(FICHIER_BIN_SAV);
             BinaryFormatter BinSerializer = new BinaryFormatter();
-            BinSerializer.Serialize(fichier, classement);
+            BinSerializer.Serialize(fichier, obj);
             fichier.Close();
         }
     }

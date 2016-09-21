@@ -17,24 +17,25 @@ namespace Jeu2DesDLL
        private const string FICHIER_JSON_SAV = "jsonsave.json";
         
        
-        public  void Load(Classement classement)
+        public  T Load<T>(T t)
         {
             if (File.Exists(FICHIER_JSON_SAV))
             {
                 Stream fichier = File.OpenRead(FICHIER_JSON_SAV);
                 DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(Classement));
                 Classement c = (Classement)serializer.ReadObject(fichier);
-                classement.Entrees = c.Entrees;
+                
                 fichier.Close();
+                return t;
             }
-          
+            return default(T);
         }
 
-        public void Save(Classement classement)
+        public void Save<T>(T t)
         {
             Stream fichier = File.Create(FICHIER_JSON_SAV);
-            DataContractJsonSerializer serializer = new DataContractJsonSerializer(classement.GetType());
-            serializer.WriteObject(fichier,classement);
+            DataContractJsonSerializer serializer = new DataContractJsonSerializer(t.GetType());
+            serializer.WriteObject(fichier,t);
             fichier.Close();
 
             

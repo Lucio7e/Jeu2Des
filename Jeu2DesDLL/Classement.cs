@@ -32,7 +32,8 @@ namespace Jeu2DesDLL
         /// Permettra de changer le type de serialization 
         /// </summary>
         public IPersistable Persistable
-        {         
+        {
+            get { return _persistable; }     
             set
             {
                 _persistable = value;
@@ -44,6 +45,12 @@ namespace Jeu2DesDLL
         {
             
         }
+
+        public Classement(Classement c)
+        {
+            this.Entrees = c.Entrees;
+            this.Persistable = c.Persistable;
+          }
         #endregion
         #region "Methodes"
         //GG : on peut aussi prévoir 2 paramètres pour AjouterEntree (nom, score)
@@ -85,7 +92,16 @@ namespace Jeu2DesDLL
         /// </summary>
         public void Charger()
         {
-            _persistable.Load(this);
+            Object obj = _persistable.Load(this);
+            if (obj != null)
+            {
+                if (obj.GetType().Equals(this.GetType()))
+                {
+                    Classement c = (Classement)obj;
+                    this.Entrees = c.Entrees;
+                }
+            }
+            
         }
        
         #endregion
